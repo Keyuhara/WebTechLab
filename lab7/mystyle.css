@@ -1,0 +1,151 @@
+/* Set the height and width of your image using CSS only (remove any HTML attributes)
+   Set the size, opacity, radius, and alignment of your image using CSS. Use an ID selector. */
+#me_image {
+    border-radius: 15%;
+    float: left;
+    height: 300px;
+    opacity: 0.9;
+    margin-left: 20px;
+    margin-right: 50px;
+    width: 300px;
+}
+
+/* Set the spacing and positioning of your paragraphs using their class(es). */
+p.answer {
+    font-size: 1.0em;
+    font-weight: normal;
+    letter-spacing: 0.1em;
+    line-height: 0.5;
+    text-align: left;
+    word-spacing: 0.2em;
+}
+p.instruction {
+    border-color: #404556;
+    border-radius: 10px;
+    border-style: solid;
+    border-width: 3px;
+    font-size: 1.1em;
+    font-weight: bold;
+    padding: 10px;
+    text-align: center;
+    width: 850px;
+}
+p.question {
+    font-size: 1.0em;
+    font-weight: bold;
+}
+
+/* Rework your form page using CSS to position and style your form elements 
+   (i.e. font, color, border, etc.). Use ID selectors. */
+#contact_color_1, #contact_color_2, #contact_color_3, #contact_color_4, #contact_color_5, #contact_color_6 {
+    background-color: #cccccc;
+    border: 1px solid gray;
+    color: black;
+}
+#contact_color_7 {
+    border: 1px solid gray;
+    color: red;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+#contact_input_1, #contact_input_2, #contact_input_3, #contact_input_4, #contact_select {
+    color: black;
+    display: block;
+    line-height: 1.3em;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+#contact_row_7 {
+    line-height: 2.0em;
+}
+#contact_submit_button {
+    background-color: #336648;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-weight: bold;
+    letter-spacing: 0.05em;
+    padding: 10px 20px;
+    margin-left: auto;
+    margin-right: auto;
+}
+#contact_table {
+    background-color: #efefef;
+    border: 1px solid gray;
+}
+#contact_text_1, #contact_text_2, #contact_text_3, #contact_text_4, #contact_text_5, #contact_text_6 {
+    border: 1px solid gray;
+    color: black;
+    font-weight: bold;
+    line-height: 2.0em;
+}
+
+/* Set the foreground and background color of all paragraph elements */
+p {
+    color: #f3feff;
+    background-color: #222530;
+}
+body {
+    color: #f3feff;
+    background-color: #222530;
+}
+
+/* Set the border color, style, width, and radius of at least one element */
+h2 {
+    border-color: #404556;
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+}
+
+/* Apply at least two additional CSS rules of your choice to your lists. */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+#contact_legend {
+    font-weight: bold;
+}
+fieldset {
+    width: 500px;
+}
+h1 {
+    color: #d7797b;
+    padding: 10px;
+}
+h2 {
+    font-size: 1.75em;
+    padding: 20px;
+    text-align: center;
+    width: 400px;
+}
+#index_time_1, #index_time_2, #index_time_3, #index_time_4 {
+    font-style: italic;
+    font-weight: normal;
+}
+li {
+    font-weight: bold;
+}
+#me_link_1, #me_link_2, #me_link_3 {
+    font-weight: bold;
+}
+
+/* Set the CSS properties for your links for a:link, a:hover, and a: visited */
+a:link {
+    color: #a7dbfb;
+    text-decoration: none;
+}
+a:visited {
+    color: #bd97e4;
+    text-decoration: none;
+}
+a:hover {
+    color: #cce698;
+    text-decoration: none;
+}
+a:active {
+    color: #f3d74a;
+    text-decoration: none;
+}

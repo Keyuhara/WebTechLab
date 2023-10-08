@@ -1,0 +1,74 @@
+<html id="contact_html">
+	<head id="contact_head">
+		<title id="contact_tab_title">contact.html</title>
+        <link id="contact_css_link" href="mystyle.css" type="text/css" rel="stylesheet" />
+    </head>
+    <body id="contact_body">
+        <h1 id="contact_page_title">CS-4413-002: Lab #7 - contact.html</h1>
+        <a id="contact_index_link" href="index.html">
+            <h2 id="contact_index_text">Return to "index.html" page</h2>
+        </a>
+        <p class="instruction">
+            For Lab #7 deploy a cloud instance that you can use for the remainder of the course.<br />
+            The cloud server must have a webserver, PHP, and MySQL installed on it.<br />
+            You may use AWS, Azure, Oracle, or any other provider that gives free access to students or lengthy free trial periods.<br />
+            When you have launched this server, upload your content from lab #5:<br />
+            index.html, me.html, contact.html, and any CSS files to your server. Place the content in a folder titled "lab7."
+        </p>
+        <fieldset id="contact_fieldset">
+            <legend id="contact_legend">Contact Form</legend>
+            <form id="contact_form" action="./save_contact.php" method="get">
+                <table id="contact_table">
+                    <tr id="contact_row_1">
+                        <th id="contact_text_1">First Name</th>
+                        <td id="contact_color_1">
+                            <input id="contact_input_1" type="text" name="fname" />
+                        </td>
+                    </tr>
+                    <tr id="contact_row_2">
+                        <th id="contact_text_2">Last Name</th>
+                        <td id="contact_color_2">
+                            <input id="contact_input_2" type="text" name="lname" />
+                        </td>
+                    </tr>
+                    <tr id="contact_row_3">
+                        <th id="contact_text_3">Phone</th>
+                        <td id="contact_color_3">
+                            <input id="contact_input_3" type="text" name="phone" />
+                        </td>
+                    </tr>
+                    <tr id="contact_row_4">
+                        <th id="contact_text_4">Email</th>
+                        <td id="contact_color_4">
+                            <input id="contact_input_4" type="text" name="email" />
+                        </td>
+                    </tr>
+                    <tr id="contact_row_5">
+                        <th id="contact_text_5">Preferred Method of Contact</th>
+                        <td id="contact_color_5">
+                            <input id="contact_input_5" type="radio" name="answer" value="text" />By Text<br /><br />
+                            <input id="contact_input_6" type="radio" name="answer" value="email" />By Email
+                        </td>
+                    </tr>
+                    <tr id="contact_row_6">
+                        <th id="contact_text_6">Preferred Time of Contact</th>
+                        <td id="contact_color_6">
+                            <select id="contact_select" name="time">
+                                <option id="contact_option_1" value="morning">Morning (8AM-12PM)</option>
+                                <option id="contact_option_2" value="afternoon">Afternoon (12AM-4PM)</option>
+                            </select>
+                        </td>
+                    </tr>
+                    <tr id="contact_row_7">
+                        <td id="contact_color_7" colspan="2">
+                            <input id="contact_input_7" type="checkbox" name="terms" value="yes" />
+                            By submitting this form, you agree to the consequences.
+                        </td>
+                    </tr>
+                </table>
+                <br />
+                <input id="contact_submit_button" type="submit" value="Submit" />
+            </form>
+        </fieldset>
+    </body>
+</html>
