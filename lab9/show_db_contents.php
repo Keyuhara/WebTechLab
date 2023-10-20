@@ -9,18 +9,20 @@ $db_user="dglqqslili";        //Change this
 $db_pass="cs-4413-002";        //Change this
 $db_name="z_url_set_1";     //Do not change
 
-$db_conn = mysqli_init();
-mysqli_ssl_set($db_conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
-mysqli_real_connect($db_conn, $db_host, $db_user, $db_pass, $db_name, 3306, MYSQLI_CLIENT_SSL);
+$connectionOptions = array(
+    "Database" => "cs-4413-002-fall-2023.mysql.database.azure.com", // update me
+    "Uid" => "dglqqslili", // update me
+    "PWD" => "cs-4413-002" // update me
+);
+//Establishes the connection
+$db_conn = sqlsrv_connect($db_host, $connectionOptions);
 
 //$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
-
-//mysqli_real_connect($db_conn, $db_host, $db_user, $db_pass, $db_name, 3306);
-if (mysqli_connect_errno())
-{
-    echo 'Connection to database failed:'.mysqli_connect_error();
-    exit();
-}
+// if (mysqli_connect_errno())
+// {
+//     echo 'Connection to database failed:'.mysqli_connect_error();
+//     exit();
+// }
 
 echo "database connection success<br>";
 echo "<strong>now showing results from a database query...</strong>";
