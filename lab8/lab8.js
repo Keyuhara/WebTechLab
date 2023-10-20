@@ -1,5 +1,4 @@
 function getDataFromForm() {
-  alert("it worked!");
   let fname = document.getElementsByName("fname")[0].value;
   let lname = document.getElementsByName("lname")[0].value;
   runAjax(fname, lname);
