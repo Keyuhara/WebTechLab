@@ -1,2 +1,2 @@
-# lab7
-CS 4413 - Lab #7
+# Web Technologies
+CS 4413 - Fall 2023
