@@ -9,9 +9,13 @@ $db_user="dglqqslili";        //Change this
 $db_pass="cs-4413-002";        //Change this
 $db_name="z_url_set_1";     //Do not change
 
-//$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 $db_conn = mysqli_init();
-mysqli_real_connect($db_conn, $db_host, $db_user, $db_pass, $db_name, 3306);
+mysqli_ssl_set($db_conn,NULL,NULL, "/var/www/html/DigiCertGlobalRootCA.crt.pem", NULL, NULL);
+mysqli_real_connect($db_conn, $db_host, $db_user, $db_pass, $db_name, 3306, MYSQLI_CLIENT_SSL);
+
+//$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
+
+//mysqli_real_connect($db_conn, $db_host, $db_user, $db_pass, $db_name, 3306);
 if (mysqli_connect_errno())
 {
     echo 'Connection to database failed:'.mysqli_connect_error();
