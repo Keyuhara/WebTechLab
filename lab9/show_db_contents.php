@@ -9,7 +9,7 @@ $db_user="dglqqslili";        //Change this
 $db_pass="cs-4413-002";        //Change this
 $db_name="z_url_set_1";     //Do not change
 
-$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name, "3306");
+$db_conn = new mysqli($db_host, $db_user, $db_pass, $db_name);
 if (mysqli_connect_errno())
 {
     echo 'Connection to database failed:'.mysqli_connect_error();
