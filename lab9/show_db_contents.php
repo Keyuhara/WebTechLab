@@ -4,7 +4,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 
-$db_host="4.156.139.43";        //Change this
+$db_host="172.127.184.79";        //Change this
 $db_user="dglqqslili";        //Change this
 $db_pass="cs-4413-002";        //Change this
 $db_name="z_url_set_1";     //Do not change
