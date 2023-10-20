@@ -10,7 +10,7 @@ $db_pass="cs-4413-002";        //Change this
 $db_name="z_url_set_1";     //Do not change
 
 $connectionOptions = array(
-    "Database" => "cs-4413-002-fall-2023.mysql.database.azure.com", // update me
+    "Database" => "z_url_set_1", // update me
     "Uid" => "dglqqslili", // update me
     "PWD" => "cs-4413-002" // update me
 );
