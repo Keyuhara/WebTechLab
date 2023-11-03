@@ -1,10 +1,9 @@
-<?php
-    echo "<p>TEST</p>"
-    $myfile = fopen("data.txt", "rb") or die("Unable to open file!");
-    while (!feof($myfile) ) {
-        $line = fgets($myfile);
-        $parts = explode(' ', $line);
-        print $parts[0].$parts[1]."<br>";
-    }
-    fclose($myfile);
-?>
+<html>
+    <body>
+        START
+        <?php
+            echo "<p>TEST</p>"
+        ?>
+        END
+    </body>
+</html>
