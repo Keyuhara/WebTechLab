@@ -1,1 +1,1 @@
-<?php echo "Hello ".$_POST['fname']." ".$_POST['lname']."!"; ?>
+<?php echo "Show Data"; ?>
