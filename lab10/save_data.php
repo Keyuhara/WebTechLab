@@ -1,8 +1,3 @@
-<?php
-$myfile = fopen("data.txt", "w") or die("Unable to open file!");
-$txt = $_POST['fname']." ".$_POST['lname']."\n";
-fwrite($myfile, $txt);
-$txt = $_POST['fname']." ".$_POST['lname']."\n";
-fwrite($myfile, $txt);
-fclose($myfile);
-?> 
+<?php if (isset($_POST['submit'])) : ?>
+   <p>Thank you for subscribing!</p>
+<?php endif; ?>
