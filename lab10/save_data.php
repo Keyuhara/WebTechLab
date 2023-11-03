@@ -4,5 +4,4 @@
     fwrite($myfile, $txt);
     fclose($myfile);
     header("Location: https://cs-4413-002-fall-2023.azurewebsites.net/lab10/");
-    include 'show_data.php';
 ?> 
