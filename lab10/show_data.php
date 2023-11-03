@@ -1,4 +1,5 @@
 <?php
+    echo "<p>TEST</p>"
     $myfile = fopen("data.txt", "rb") or die("Unable to open file!");
     while (!feof($myfile) ) {
         $line = fgets($myfile);
