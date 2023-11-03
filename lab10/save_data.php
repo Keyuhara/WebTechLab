@@ -1,5 +1,5 @@
 <?php
-    $myfile = fopen("data.txt", "w") or die("Unable to open file!");
+    $myfile = fopen("data.txt", "a") or die("Unable to open file!");
     $txt = $_POST['fname']." ".$_POST['lname']."\n";
     fwrite($myfile, $txt);
     fclose($myfile);

@@ -1,13 +1,15 @@
 <html>
     <body>
-        <?php
-            $myfile = fopen("data.txt", "rb") or die("Unable to open file!");
-            while (!feof($myfile) ) {
-                $line = fgets($myfile);
-                $parts = explode(' ', $line);
-                print $parts[0]." ".$parts[1]."<br>";
-            }
-            fclose($myfile);
-        ?>
+        <table>
+            <?php
+                $myfile = fopen("data.txt", "rb") or die("Unable to open file!");
+                while (!feof($myfile) ) {
+                    $line = fgets($myfile);
+                    $parts = explode(' ', $line);
+                    echo "<td>".$parts[0]."</td><td>".$parts[1]."</td><br>";
+                }
+                fclose($myfile);
+            ?>
+        <table>
     </body>
 </html>
