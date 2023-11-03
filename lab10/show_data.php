@@ -1,12 +1,12 @@
 <html>
     <body>
-        <table border = "1" cellpadding = "3">
+        <table border = "1">
             <tr>
                 <td>First Name</td>
                 <td>Last Name</td>
             <tr>
             <?php
-                $myfile = fopen("data.txt", "rb") or die("Unable to open file!");
+                $myfile = fopen("/home/site/wwwroot/lab10/data.txt", "rb") or die("Unable to open file!");
                 while (!feof($myfile) ) {
                     $line = fgets($myfile);
                     $parts = explode(' ', $line);
