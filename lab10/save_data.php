@@ -3,5 +3,5 @@
     $txt = $_POST['fname']." ".$_POST['lname']."\n";
     fwrite($myfile, $txt);
     fclose($myfile);
-    echo file_get_contents("/home/site/wwwroot/lab10");
+    header("Location: https://cs-4413-002-fall-2023.azurewebsites.net/lab10/");
 ?> 
