@@ -1,5 +1,5 @@
 <?php
-    $myfile = fopen("/home/site/data.txt", "a");
+    $myfile = fopen("/home/site/data.txt", "w");
     $txt = $_POST['fname']." ".$_POST['lname']."\n";
     fwrite($myfile, $txt);
     fclose($myfile);
