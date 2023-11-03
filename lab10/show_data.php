@@ -5,7 +5,7 @@
             while (!feof($myfile) ) {
                 $line = fgets($myfile);
                 $parts = explode(' ', $line);
-                print $parts[0].$parts[1]."<br>";
+                print $parts[0]." ".$parts[1]."<br>";
             }
             fclose($myfile);
         ?>
