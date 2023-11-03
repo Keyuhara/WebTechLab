@@ -1,5 +1,5 @@
 <?php
-    $myfile = fopen("/home/site/wwwroot/lab10/data.txt", "a") or die("Unable to open file!");
+    $myfile = fopen("/home/site/data.txt", "a") or die("Unable to open file!");
     $txt = $_POST['fname']." ".$_POST['lname']."\n";
     fwrite($myfile, $txt);
     fclose($myfile);

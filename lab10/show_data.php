@@ -6,7 +6,7 @@
                 <td>Last Name</td>
             <tr>
             <?php
-                $myfile = fopen("/home/site/wwwroot/lab10/data.txt", "rb") or die("Unable to open file!");
+                $myfile = fopen("/home/site/data.txt", "rb") or die("Unable to open file!");
                 while (!feof($myfile) ) {
                     $line = fgets($myfile);
                     $parts = explode(' ', $line);
