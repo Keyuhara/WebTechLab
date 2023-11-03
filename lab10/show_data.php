@@ -1,28 +1,3 @@
 <?php
-    <html>
-        <head>
-            <title>index.html</title>
-        </head>
-        <body>
-            <h1>CS-4413-002: Lab #10 - index.html</h1>
-            <form action="./save_data.php" method="post">
-                <table>
-                    <tr>
-                        <th>First Name</th>
-                        <td>
-                            <input type="text" name="fname" />
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>Last Name</th>
-                        <td>
-                            <input type="text" name="lname" />
-                        </td>
-                    </tr>
-                </table>
-                <br />
-                <input type="submit" value="Submit" />
-            </form>
-        </body>
-    </html>
+    echo "<p>TEST</p>"
 ?>
