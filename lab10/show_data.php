@@ -1,6 +1,6 @@
 <html>
     <body>
-        <table>
+        <table border = "1" cellpadding = "3">
             <tr>
                 <td>First Name</td>
                 <td>Last Name</td>
