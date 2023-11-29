@@ -1,7 +1,3 @@
-<?php
-    setcookie("username", "test", time() + 3600);
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -30,6 +26,7 @@
     <h1>Test Memes</h1>
     <p>
         <?php
+            setcookie("username", "test", time() + 3600);
             if (isset($_COOKIE["username"])) 
             {
                 echo 'COOKIE!!!'
