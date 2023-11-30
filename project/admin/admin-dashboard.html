@@ -27,16 +27,14 @@
                     document.getElementById("username").innerHTML = "Hello, " + user;
                 }
                 else {
-                    alert('No usernamecookie!');
-                    setCookie(); // DELETE
+                    // alert('No username cookie!');
                 }
             }
             else {
-                document.getElementById("admin").style.display = "none";
-                alert('No admin cookie!');
-                setCookie(); // DELETE
+                // alert('No admin cookie!');
                 // Redirect to admin-dashboard.html
                 window.location.href = '../index.html';
+                alert('Access Denied: Not Admin!');
             }
         }
 
@@ -51,30 +49,21 @@
             }
             return null;
         }
-        
-        // create cookie for test DELETE
-        function setCookie() {
-            document.cookie = "admin = true";
-            document.cookie = "username = admin";
-            //document.cookie = "username = Joe; max-age = " + 100; 
-        }
     </script>
-    <div id="admin">
-      <a href="../index.html" class="w3-xxlarge home-icon"
-        ><i class="fa fa-home"></i
-      ></a>
+    <a href="../index.html" class="w3-xxlarge home-icon"
+      ><i class="fa fa-home"></i
+    ></a>
 
-      <a href="../login.html" class="w3-xxlarge user-icon"
-        ><i class="bi bi-person"></i>
-        <div class="username">
-          <p id="username">Hello, [ADMIN]</p>
-        </div>
-      </a>
-      <h1>Admin Dashboard</h1>
-      <div class="admin-dash-container">
-        <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
-        <div class="admin-dash-box"><a href="admin-users.html">Users</a></div>
+    <a href="../login.html" class="w3-xxlarge user-icon"
+      ><i class="bi bi-person"></i>
+      <div class="username">
+        <p id="username">Hello, [ADMIN]</p>
       </div>
+    </a>
+    <h1>Admin Dashboard</h1>
+    <div class="admin-dash-container">
+      <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
+      <div class="admin-dash-box"><a href="admin-users.html">Users</a></div>
     </div>
   </body>
 </html>
