@@ -15,7 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
   </head>
-  <body onload="checkAdminCookie()" id="admin">
+  <body onload="checkAdminCookie()">
     <script>
         function checkAdminCookie() {
             var isAdmin = getCookie('admin');
@@ -59,20 +59,22 @@
             //document.cookie = "username = Joe; max-age = " + 100; 
         }
     </script>
-    <a href="../index.html" class="w3-xxlarge home-icon"
-      ><i class="fa fa-home"></i
-    ></a>
+    <div id="admin">
+      <a href="../index.html" class="w3-xxlarge home-icon"
+        ><i class="fa fa-home"></i
+      ></a>
 
-    <a href="../login.html" class="w3-xxlarge user-icon"
-      ><i class="bi bi-person"></i>
-      <div class="username">
-        <p id="username">Hello, [ADMIN]</p>
+      <a href="../login.html" class="w3-xxlarge user-icon"
+        ><i class="bi bi-person"></i>
+        <div class="username">
+          <p id="username">Hello, [ADMIN]</p>
+        </div>
+      </a>
+      <h1>Admin Dashboard</h1>
+      <div class="admin-dash-container">
+        <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
+        <div class="admin-dash-box"><a href="admin-users.html">Users</a></div>
       </div>
-    </a>
-    <h1>Admin Dashboard</h1>
-    <div class="admin-dash-container">
-      <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
-      <div class="admin-dash-box"><a href="admin-users.html">Users</a></div>
     </div>
   </body>
 </html>
