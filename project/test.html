@@ -1,6 +1,22 @@
 <!DOCTYPE html>
 <html>
-  <head onload="checkCookie()">
+  <head>
+    <title>"(APP NAME)"</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
+    />
+    <!-- <script src="validate-login.js"></script> -->
+  </head>
+  <body onload="checkCookie()">
     <script>
         function checkCookie() {
             var user = getCookie('username');
@@ -27,27 +43,6 @@
         function setCookie() {
             document.cookie = "username = Joe";
             //document.cookie = "username = Joe; max-age = " + 100; 
-        }
-    </script>
-    <title>"(APP NAME)"</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link rel="stylesheet" href="styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
-    />
-    <!-- <script src="validate-login.js"></script> -->
-  </head>
-  <body onload="myFunction()">
-    <script>
-        function myFunction() {
-            alert("Page is loaded"); 
         }
     </script>
     <a href="index.html" class="w3-xxlarge home-icon"
