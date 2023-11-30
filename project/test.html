@@ -20,8 +20,9 @@
     <script>
         function checkCookie() {
             var user = getCookie('username');
-            if (user != '') {
-                alert('Welcome again ' + user);
+            if (user != null) {
+                alert('Cookie is set to' + user);
+                document.getElementById("username").innerHTML = "Hello, " + user;
             }
             else {
                 alert('No cookie');
@@ -29,6 +30,7 @@
             }
         }
 
+        // check for cookie of 'name'
         function getCookie(name) {
             var cookieArr = document.cookie.split(';');
             for (var i = 0; i < cookieArr.length; i++) {
@@ -37,9 +39,10 @@
                 return decodeURIComponent(cookiePair[1]);
                 }
             }
-            return "";
+            return null;
         }
 
+        // create cookie for test
         function setCookie() {
             document.cookie = "username = Joe";
             //document.cookie = "username = Joe; max-age = " + 100; 
@@ -64,7 +67,7 @@
         <a href="#">Sign Out</a>
       </div>
       <div class="username">
-        <p>Hello USERNAME</p>
+        <p id="username">Log in or sign up!</p>
       </div>
     </div>
 
