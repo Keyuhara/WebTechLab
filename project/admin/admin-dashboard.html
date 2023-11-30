@@ -15,21 +15,63 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
   </head>
-  <body>
+  <body onload="checkAdminCookie()">
+    <script>
+        function checkAdminCookie() {
+            var isAdmin = getCookie('admin');
+            if (isAdmin == "true") {
+                alert('Cookie confirmed admin!');
+                var user = getCookie('username');
+                if (user != null) {
+                    // alert('Cookie is set to ' + user);
+                    document.getElementById("username").innerHTML = "Hello, " + user;
+                }
+                else {
+                    // alert('No usernamecookie!');
+                    setCookie(); // DELETE
+                }
+            }
+            else {
+                alert('No admin cookie!');
+                setCookie(); // DELETE
+                // Redirect to admin-dashboard.html
+                window.location.href = 'index.html';
+            }
+        }
+
+        // check for cookie of 'name'
+        function getCookie(name) {
+            var cookieArr = document.cookie.split(';');
+            for (var i = 0; i < cookieArr.length; i++) {
+                var cookiePair = cookieArr[i].split('=');
+                if (name == cookiePair[0].trim()) {
+                return decodeURIComponent(cookiePair[1]);
+                }
+            }
+            return null;
+        }
+        
+        // create cookie for test DELETE
+        function setCookie() {
+            document.cookie = "admin = true";
+            document.cookie = "username = admin";
+            //document.cookie = "username = Joe; max-age = " + 100; 
+        }
+    </script>
     <a href="../index.html" class="w3-xxlarge home-icon"
       ><i class="fa fa-home"></i
     ></a>
 
     <a href="../login.html" class="w3-xxlarge user-icon"
       ><i class="bi bi-person"></i>
+      <div class="username">
+        <p id="username">Hello, [ADMIN]</p>
+      </div>
     </a>
     <h1>Admin Dashboard</h1>
     <div class="admin-dash-container">
       <div class="admin-dash-box"><a href="admin-posts.html">Posts</a></div>
       <div class="admin-dash-box"><a href="admin-users.html">Users</a></div>
-      <div class="admin-dash-box">
-        <a href="admin-categories.html">Categories</a>
-      </div>
     </div>
   </body>
 </html>
