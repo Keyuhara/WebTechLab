@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html id="admin">
+<html>
   <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../styles.css" />
@@ -15,7 +15,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
   </head>
-  <body onload="checkAdminCookie()">
+  <body onload="checkAdminCookie()" id="admin">
     <script>
         function checkAdminCookie() {
             var isAdmin = getCookie('admin');
