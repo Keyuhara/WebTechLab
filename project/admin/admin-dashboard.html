@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html id="admin">
   <head>
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="../styles.css" />
@@ -27,11 +27,12 @@
                     document.getElementById("username").innerHTML = "Hello, " + user;
                 }
                 else {
-                    // alert('No usernamecookie!');
+                    alert('No usernamecookie!');
                     setCookie(); // DELETE
                 }
             }
             else {
+                document.getElementById("admin").style.display = "none";
                 alert('No admin cookie!');
                 setCookie(); // DELETE
                 // Redirect to admin-dashboard.html
