@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>"(APP NAME)"</title>
+    <title>MESH</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="stylesheet" href="styles.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -15,14 +15,78 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
     <script src="post-modal.js"></script>
+    <script src="display-tech.js"></script>
   </head>
-  <body>
+  <body onload="checkCookie()">
+    <script>
+      function checkCookie() {
+        var user = getCookie("username");
+        if (user != null) {
+          // User is logged in
+          document.getElementById("username").innerHTML = "Hello, " + user;
+          document
+            .getElementById("usernameLink")
+            .setAttribute("href", "account.html");
+          document.getElementById("loginLink").style.display = "none";
+          document.getElementById("userDropdown").style.display = "block";
+          document.getElementById("plusButton").style.display = "block"; // Show the button
+        } else {
+          // User is not logged in
+          document.getElementById("username").innerHTML = "Log in or sign up!";
+          document
+            .getElementById("usernameLink")
+            .setAttribute("href", "login.html");
+          document.getElementById("loginLink").style.display = "block";
+          document.getElementById("userDropdown").style.display = "none";
+          document.getElementById("plusButton").style.display = "none"; // Keep the button hidden
+        }
+      }
+
+      // check for cookie of 'name'
+      function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+        for (var i = 0; i < cookieArr.length; i++) {
+          var cookiePair = cookieArr[i].split("=");
+          if (name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+          }
+        }
+        return null;
+      }
+
+      function deleteCookie(name) {
+        document.cookie =
+          name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }
+    </script>
     <a href="index.html" class="w3-xxlarge home-icon"
       ><i class="fa fa-home"></i
     ></a>
-    <a href="login.html" class="w3-xxlarge user-icon"
-      ><i class="bi bi-person"></i>
+    <div class="username">
+      <a href="login.html" id="usernameLink" style="text-decoration: none">
+        <p id="username">Log in or sign up!</p>
+      </a>
+    </div>
+    <a href="login.html" class="w3-xxlarge user-icon" id="loginLink">
+      <i class="bi bi-person"></i>
     </a>
+
+    <div class="dropdown" id="userDropdown" style="display: none">
+      <a href="login.html" class="w3-xxlarge gear-icon">
+        <i class="bi bi-gear"></i>
+      </a>
+      <div class="dropdown-content">
+        <a href="account.html">Manage</a>
+        <a
+          href="javascript:void(0);"
+          onclick="deleteCookie('username'); 
+          window.location.href='index.html';"
+        >
+          Sign Out
+        </a>
+      </div>
+    </div>
+
     <h1>Technology</h1>
     <div class="post-header">
       <h2>Posts</h2>
@@ -31,23 +95,38 @@
       </button>
     </div>
 
+    <!-- Table to display posts -->
+    <div class="user-post-table-container">
+      <table class="user-post-table">
+        <tbody id="postTableBody">
+          <!-- post data will be inserted here -->
+        </tbody>
+      </table>
+    </div>
+
     <!-- Modal for new post -->
     <div id="newPostModal" class="modal">
       <div class="modal-content">
-          <button id="closeForm" class="close">&times;</button>
-          <h1>Create a New Post</h1>
-          <form id="newPostForm">
-              <label for="postText">Post Text:</label>
-              <textarea id="postText" name="postText" rows="4" cols="50" required></textarea>
+        <button id="closeForm" class="close">&times;</button>
+        <h1>Create a New Post</h1>
+        <form id="newPostForm" enctype="multipart/form-data">
+          <label for="postText">Post Text:</label>
+          <textarea
+            id="postText"
+            name="postText"
+            rows="4"
+            cols="50"
+            required
+          ></textarea>
 
-              <label for="fileUploader">Upload File:</label>
-              <input type="file" id="fileUploader" name="fileUploader">
+          <label for="fileUploader">Upload File:</label>
+          <input type="file" id="fileUploader" name="fileUploader" />
 
-              <label for="hyperlink">Hyperlink:</label>
-              <input type="text" id="hyperlink" name="hyperlink">
+          <label for="hyperlink">Hyperlink:</label>
+          <input type="text" id="hyperlink" name="hyperlink" />
 
-              <button type="submit" class="submit-post-button">Submit</button>
-          </form>
+          <button type="submit" class="submit-post-button">Submit</button>
+        </form>
       </div>
     </div>
   </body>

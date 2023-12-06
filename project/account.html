@@ -15,40 +15,94 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.8.1/font/bootstrap-icons.min.css"
     />
     <!-- <script src="validate-login.js"></script> -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
+    <!-- <script>
+      document.addEventListener("DOMContentLoaded", function () {
         // Get the username from the cookie
         const usernameCookie = document.cookie
-          .split('; ')
-          .find(row => row.startsWith('username='))
-          .split('=')[1];
+          .split("; ")
+          .find((row) => row.startsWith("username="))
+          .split("=")[1];
 
         // Update the content of the "username" element
-        const usernameElement = document.getElementById('username');
+        const usernameElement = document.getElementById("username");
         if (usernameElement) {
-          usernameElement.textContent = usernameCookie || 'user123';
+          usernameElement.textContent = usernameCookie || "user123";
         }
       });
-    </script>
+    </script> -->
+    <script src="edit-account.js"></script>
   </head>
-  <body>
+  <body onload="checkCookie()">
+    <script>
+      function checkCookie() {
+        var user = getCookie("username");
+        if (user != null) {
+          // User is logged in
+          document.getElementById("username").innerHTML = "Hello, " + user;
+          document
+            .getElementById("usernameLink")
+            .setAttribute("href", "account.html");
+          document.getElementById("loginLink").style.display = "none"; // Hide login link
+          document.getElementById("userDropdown").style.display = "block"; // Show user dropdown
+          document.getElementById("username-info").innerHTML = user; // Update username in account info
+        } else {
+          // User is not logged in
+          document.getElementById("username").innerHTML = "Log in or sign up!";
+          document
+            .getElementById("usernameLink")
+            .setAttribute("href", "login.html"); // Change to login page
+          document.getElementById("loginLink").style.display = "block"; // Show login link
+          document.getElementById("userDropdown").style.display = "none"; // Hide user dropdown
+        }
+
+        var pass = getCookie("password");
+        if (pass != null) {
+          document.getElementById("password-info").innerHTML = pass; // Update password in account info
+        }
+      }
+
+      // check for cookie of 'name'
+      function getCookie(name) {
+        var cookieArr = document.cookie.split(";");
+        for (var i = 0; i < cookieArr.length; i++) {
+          var cookiePair = cookieArr[i].split("=");
+          if (name == cookiePair[0].trim()) {
+            return decodeURIComponent(cookiePair[1]);
+          }
+        }
+        return null;
+      }
+
+      function deleteCookie(name) {
+        document.cookie =
+          name + "=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+      }
+    </script>
     <a href="index.html" class="w3-xxlarge home-icon"
       ><i class="fa fa-home"></i
     ></a>
-    <!-- <div class="account-info"> -->
-    <!-- <span id="loggedUser" class="username"></span> -->
+    <div class="username">
+      <a href="login.html" id="usernameLink" style="text-decoration: none">
+        <p id="username">Log in or sign up!</p>
+      </a>
+    </div>
+    <a href="login.html" class="w3-xxlarge user-icon" id="loginLink">
+      <i class="bi bi-person"></i>
+    </a>
 
-    <!-- <a href="login.html" class="w3-xxlarge user-icon"
-      ><i class="bi bi-person"></i>
-    </a> -->
-
-    <div class="dropdown">
-      <a href="login.html" class="w3-xxlarge gear-icon">
+    <div class="dropdown" id="userDropdown" style="display: none">
+      <a href="" class="w3-xxlarge gear-icon">
         <i class="bi bi-gear"></i>
       </a>
       <div class="dropdown-content">
         <a href="account.html">Manage</a>
-        <a href="#">Sign Out</a>
+        <a
+          href="javascript:void(0);"
+          onclick="deleteCookie('username'); 
+          window.location.href='index.html';"
+        >
+          Sign Out
+        </a>
       </div>
     </div>
 
@@ -58,7 +112,7 @@
       <table>
         <tr>
           <td>Username:</td>
-          <td id="username">user123</td>
+          <td id="username-info">user123</td>
           <td>
             <button class="edit-btn" onclick="openModal('usernameModal')">
               Edit
@@ -67,7 +121,7 @@
         </tr>
         <tr>
           <td>Password:</td>
-          <td>********</td>
+          <td id="password-info">********</td>
           <td>
             <button class="edit-btn" onclick="openModal('passwordModal')">
               Edit
@@ -83,12 +137,10 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal('usernameModal')">&times;</span>
         <h2>Change Username</h2>
-        <input
-          type="text"
-          placeholder="Enter new username"
-          name="newUsername"
-        />
-        <button class="save-btn">Save Changes</button>
+        <form id="usernameForm" onsubmit="updateUsername(); return false;">
+          <input type="text" placeholder="Enter new username" name="newUsername" id="newUsernameInput" />
+          <button type="submit" class="save-btn">Save Changes</button>
+      </form>
       </div>
     </div>
 
@@ -98,12 +150,10 @@
       <div class="modal-content">
         <span class="close" onclick="closeModal('passwordModal')">&times;</span>
         <h2>Change Password</h2>
-        <input
-          type="password"
-          placeholder="Enter new password"
-          name="newPassword"
-        />
-        <button class="save-btn">Save Changes</button>
+        <form id="passwordForm" onsubmit="updatePassword(); return false;">
+          <input type="text" placeholder="Enter new password" name="newPassword" id="newPasswordInput" />
+          <button class="save-btn">Save Changes</button>
+        </form>
       </div>
     </div>
 

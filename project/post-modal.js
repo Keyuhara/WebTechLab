@@ -21,6 +21,7 @@ document.addEventListener('DOMContentLoaded', function () {
     // closes the modal
     function closeModal() {
         modal.style.display = 'none';
+        location.reload();
     }
 
     // submit the form (might need to change or update when connected to db)
@@ -28,7 +29,9 @@ document.addEventListener('DOMContentLoaded', function () {
         event.preventDefault();
     
         const formData = new FormData(document.getElementById('newPostForm'));
+        const category = getCategoryFromPage();
         console.log('Form Data:', formData);
+        formData.append('category', category);
     
         // Use the Fetch API to send the data to the PHP script
         fetch('./add-post.php', {
@@ -41,10 +44,20 @@ document.addEventListener('DOMContentLoaded', function () {
     
             // Optionally, close the modal
             closeModal();
+            location.reload();
         })
         .catch(error => {
             console.error('Error:', error);
             // Handle errors
         });
     });
+    function getCategoryFromPage() {
+        const url = window.location.href;
+
+    // Split the URL by '/' and get the last part
+        const urlParts = url.split('/');
+        const category = urlParts[urlParts.length - 1];
+
+        return category;
+    }    
 });

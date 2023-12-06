@@ -17,11 +17,42 @@ if (mysqli_connect_errno()) {
 $conn->begin_transaction();
 
 try {
-    $username = 'test';
+
+    $uploadDirectory = __DIR__ . '/assets/images/';
+    $username = isset($_COOKIE['username']) ? $_COOKIE['username'] : 'default_user';
     $postText = $_POST['postText'];
-    $fileUploader = isset($_POST['fileUploader']) ? $_POST['fileUploader'] : null;
     $hyperlink = isset($_POST['hyperlink']) ? $_POST['hyperlink'] : null;
-    $category = 'Art and Music';
+    $category = $_POST['category'];
+    
+    $fileUploader = null;
+    if (!empty($_FILES['fileUploader']['name'])) {
+
+        // Output information about the uploaded file
+        echo '<pre>';
+        print_r($_FILES);
+        echo '</pre>';
+    
+        // Get the original file name
+        $originalFileName = $_FILES['fileUploader']['name'];
+    
+        // Replace spaces with dashes in the file name
+        $fileUploader = str_replace(' ', '-', $originalFileName);
+    
+        // Define the target path where the file will be moved to
+        $targetPath = $uploadDirectory . $fileUploader;
+    
+        // Output file type and size information
+        echo 'File Type: ' . $_FILES['fileUploader']['type'] . '<br>';
+        echo 'File Size: ' . $_FILES['fileUploader']['size'] . ' bytes<br>';
+    
+        // Move the uploaded file to the target path
+        if (move_uploaded_file($_FILES['fileUploader']['tmp_name'], $targetPath)) {
+            echo 'File has been uploaded successfully.';
+        } else {
+            // Throw an exception if there's an error moving the file
+            throw new Exception('Error uploading file. Target Path: ' . $targetPath);
+        }
+    }
 
     $sql = "INSERT INTO posts (username, body, image, hyperlink, category) VALUES ('$username', '$postText', '$fileUploader', '$hyperlink', '$category')";
 
